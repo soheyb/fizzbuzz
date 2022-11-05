@@ -24,4 +24,22 @@ class RangeIterator implements IteratorInterface
         $this->start = new Number($this->start->getValue() + 1);
         return $this->run($functions, $result);
     }
+
+    /**
+     * @return Number
+     */
+    public function getStart(): Number
+    {
+        return $this->start;
+    }
+
+    /**
+     * @return Number
+     */
+    public function getEnd(): Number
+    {
+        return $this->end;
+    }
+
+
 }
