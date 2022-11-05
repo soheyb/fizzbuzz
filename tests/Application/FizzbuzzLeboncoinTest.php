@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Tests\Logic;
+namespace App\Tests\Application;
 
 
 use App\Controller\Application\FizzbuzzLeboncoin;
