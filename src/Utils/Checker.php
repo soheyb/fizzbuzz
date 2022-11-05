@@ -17,6 +17,6 @@ class Checker
                 return false;
             }
         }
-        return in_array("", $received, true) !== true;
+        return in_array("", $received, true) !== true && min($received) >= 0;
     }
 }

@@ -2,7 +2,7 @@
 
 namespace App\Controller\Logic;
 
-use App\Controller\Logic\Rule;
+use App\Controller\Logic\RuleInterface;
 
 class RulesList
 {
@@ -13,7 +13,7 @@ class RulesList
         $this->rules = $rules;
     }
 
-    public function push(Rule $rule): RulesList
+    public function push(RuleInterface $rule): RulesList
     {
         $this->rules[] = $rule;
         return new self($this->rules);

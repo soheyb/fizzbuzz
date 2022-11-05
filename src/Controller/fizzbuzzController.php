@@ -45,7 +45,7 @@ class fizzbuzzController extends AbstractController
 
             return new JsonResponse(
                 array(
-                    "error" => "parameters missing",
+                    "error" => "wrong parameters",
                 ),
                 Response::HTTP_UNPROCESSABLE_ENTITY
             );

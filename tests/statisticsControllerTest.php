@@ -7,7 +7,11 @@ use PHPUnit\Framework\TestCase;
 
 class statisticsControllerTest extends  TestCase
 {
-    public function  testStatistics()
+    /**
+     * @return void
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function  testStatistics() :void
     {
         $url = '/statistics';
         $client = new Client([

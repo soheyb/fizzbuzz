@@ -3,6 +3,7 @@
 
 
  use GuzzleHttp\Client;
+ use GuzzleHttp\Exception\BadResponseException;
  use GuzzleHttp\Handler\MockHandler;
  use GuzzleHttp\HandlerStack;
  use GuzzleHttp\Psr7\Response;
@@ -14,7 +15,11 @@
  {
 
 
-    public function  testBasicFizzbuzz() : void
+     /**
+      * @return void
+      * @throws \GuzzleHttp\Exception\GuzzleException
+      */
+    public function  test_basic_fizzbuzz() : void
     {
 
         $int1 = 3;
@@ -39,7 +44,11 @@
 
     }
 
-     public function  testLongFizzbuzz() :void
+     /**
+      * @return void
+      * @throws \GuzzleHttp\Exception\GuzzleException
+      */
+     public function  test_long_fizzbuzz() :void
      {
          $int1 = 3;
          $int2 = 8;
@@ -60,5 +69,88 @@
          $data = json_decode($response->getBody(), true);
          $this->assertArrayHasKey('fizzbuzz', $data);
          $this->assertEquals($dataExpected, $data['fizzbuzz']);
+     }
+
+     /**
+      * @return void
+      * @throws \GuzzleHttp\Exception\GuzzleException
+      */
+     public function test_negative_numbers_fizzbuzz(): void
+     {
+         $int1 = -3;
+         $int2 = -4;
+         $limit = 15;
+         $word1 = "fizz";
+         $word2 = "buzz";
+         $dataExpected = "wrong parameters";
+
+         $url = "?int1=$int1&int2=$int2&limit=$limit&word1=$word1&word2=$word2";
+         $client = new Client([
+             'base_uri' => 'http://fizzbuzz',
+             'defaults' => [
+                 'exceptions' => false
+             ],
+             'http_errors' => false
+         ]);
+         $response = $client->request('GET', $url);
+         $this->assertEquals(422, $response->getStatusCode());
+         $data = json_decode($response->getBody(), true);
+         $this->assertArrayHasKey('error', $data);
+         $this->assertEquals($dataExpected, $data['error']);
+     }
+
+     /**
+      * @return void
+      * @throws \GuzzleHttp\Exception\GuzzleException
+      */
+     public function test_empty_words_fizzbuzz(): void
+     {
+         $int1 = 3;
+         $int2 = 4;
+         $limit = 15;
+         $word1 = "";
+         $word2 = "buzz";
+         $dataExpected = "wrong parameters";
+
+         $url = "?int1=$int1&int2=$int2&limit=$limit&word1=$word1&word2=$word2";
+         $client = new Client([
+             'base_uri' => 'http://fizzbuzz',
+             'defaults' => [
+                 'exceptions' => false
+             ],
+             'http_errors' => false
+         ]);
+         $response = $client->request('GET', $url);
+         $this->assertEquals(422, $response->getStatusCode());
+         $data = json_decode($response->getBody(), true);
+         $this->assertArrayHasKey('error', $data);
+         $this->assertEquals($dataExpected, $data['error']);
+     }
+
+     /**
+      * @return void
+      * @throws \GuzzleHttp\Exception\GuzzleException
+      */
+     public function test_empty_number_fizzbuzz(): void
+     {
+         $int1 = 3;
+         $limit = 15;
+         $word1 = "fizz";
+         $word2 = "buzz";
+         $dataExpected = "wrong parameters";
+
+         $url = "?int1=$int1&int2=&limit=$limit&word1=$word1&word2=$word2";
+         $client = new Client([
+             'base_uri' => 'http://fizzbuzz',
+             'defaults' => [
+                 'exceptions' => false
+             ],
+             'http_errors' => false
+         ]);
+         $response = $client->request('GET', $url);
+         $this->assertEquals(422, $response->getStatusCode());
+         $data = json_decode($response->getBody(), true);
+         $this->assertArrayHasKey('error', $data);
+         $this->assertEquals($dataExpected, $data['error']);
      }
  }
