@@ -11,7 +11,7 @@ class statisticsControllerTest extends  TestCase
      * @return void
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    public function  testStatistics() :void
+    public function  test_statistics() :void
     {
         $url = '/statistics';
         $client = new Client([
