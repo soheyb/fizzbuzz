@@ -24,16 +24,19 @@ class fizzbuzzController extends AbstractController
 
 
     /**
-     * Main route (New homepage)
+     * Main route to generate the Fizzbuzz
      *
      * @Route("/", name="fizzbuzz")
      * @param Request $request
      * @return JsonResponse
      */
-    public function index(Request $request , ManagerRegistry $doctrine)
+    public function index(Request $request , ManagerRegistry $doctrine) :JsonResponse
     {
 
 
+        /*
+         *Check all parameters
+         */
         if(Checker::arrayCompare(array(
                 "int1",
                 "int2",
@@ -50,6 +53,7 @@ class fizzbuzzController extends AbstractController
                 Response::HTTP_UNPROCESSABLE_ENTITY
             );
         }
+
         /*
          * Get parameters
          */
@@ -75,6 +79,9 @@ class fizzbuzzController extends AbstractController
             $rule2
         ]);
 
+        /*
+         * Lunch the logic
+         */
         $iterator = new RangeIterator($start, $end);
         $fizzBuzz =new FizzbuzzLeboncoin($iterator, $rules);
         $generatedString = $fizzBuzz->generate();

@@ -14,7 +14,8 @@ use PHPUnit\Framework\TestCase;
 
 class FizzbuzzLeboncoinTest extends TestCase
 {
-    /**
+
+    /** Test simple application logic
      * @return void
      */
     public function test_fizzbuzz_leboncoin():void
@@ -40,6 +41,7 @@ class FizzbuzzLeboncoinTest extends TestCase
     }
 
     /**
+     * Test calling the methods injecting the wrong classes
      * @return void
      */
     public function test_fizzbuzz_leboncoin_wrong_class():void

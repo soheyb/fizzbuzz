@@ -4,6 +4,9 @@ namespace App\Controller\Values;
 
 use InvalidArgumentException;
 
+/**
+ *
+ */
 class Word
 {
     private  $word;

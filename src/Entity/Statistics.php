@@ -23,6 +23,9 @@ class Statistics
     private $request;
 
 
+    /**
+     * @param string $request
+     */
     public function __construct(string $request)
     {
         $this->request = $request;

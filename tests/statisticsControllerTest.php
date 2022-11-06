@@ -5,9 +5,11 @@ namespace App\Tests;
 use GuzzleHttp\Client;
 use PHPUnit\Framework\TestCase;
 
+
 class statisticsControllerTest extends  TestCase
 {
     /**
+     * Test Statistic route
      * @return void
      * @throws \GuzzleHttp\Exception\GuzzleException
      */

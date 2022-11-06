@@ -10,19 +10,27 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+
 class  statisticsController extends AbstractController
 {
     /**
-     * Statistics route (New homepage)
+     * Statistics route, return to top used parameters
      *
      * @Route("/statistics", name="statistics")
-     * @param Request $request
+     * @param ManagerRegistry $doctrine
      * @return JsonResponse
      */
-    public function statistics(Request $request, ManagerRegistry $doctrine) : JsonResponse
+    public function statistics(ManagerRegistry $doctrine) : JsonResponse
     {
+        /*
+         *Use the repository to get handle the data
+         */
         $statsRepo = new StatisticsRepository($doctrine);
         $top = $statsRepo->top();
+
+        /*
+         * If table is empty
+         */
         if (is_null($top))
         {
             return new JsonResponse(

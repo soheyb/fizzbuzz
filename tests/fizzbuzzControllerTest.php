@@ -16,6 +16,7 @@
 
 
      /**
+      *Test fizzbuzz route
       * @return void
       * @throws \GuzzleHttp\Exception\GuzzleException
       */
@@ -45,6 +46,7 @@
     }
 
      /**
+      * Test longer Fizzbuzz within the limit of 255 character
       * @return void
       * @throws \GuzzleHttp\Exception\GuzzleException
       */
@@ -72,6 +74,36 @@
      }
 
      /**
+      * Test longer Fizzbuzz within the limit of 245 character
+      * @return void
+      * @throws \GuzzleHttp\Exception\GuzzleException
+      */
+     public function  test_very_long_fizzbuzz() :void
+     {
+         $int1 = 3;
+         $int2 = 8;
+         $limit = 300;
+         $word1 = "fizz";
+         $word2 = "buzz";
+         $dataExpected = "wrong parameters";
+
+         $url = "?int1=$int1&int2=$int2&limit=$limit&word1=$word1&word2=$word2";
+         $client = new Client([
+             'base_uri' => 'http://fizzbuzz',
+             'defaults' => [
+                 'exceptions' => false
+             ],
+             'http_errors' => false
+         ]);
+         $response = $client->request('GET', $url);
+         $this->assertEquals(422, $response->getStatusCode());
+         $data = json_decode($response->getBody(), true);
+         $this->assertArrayHasKey('error', $data);
+         $this->assertEquals($dataExpected, $data['error']);
+     }
+
+     /**
+      * Test longer Fizzbuzz within the limit of 245 character
       * @return void
       * @throws \GuzzleHttp\Exception\GuzzleException
       */
@@ -100,6 +132,7 @@
      }
 
      /**
+      * Test if a word is empty
       * @return void
       * @throws \GuzzleHttp\Exception\GuzzleException
       */
@@ -128,6 +161,7 @@
      }
 
      /**
+      * Test if a number is missing
       * @return void
       * @throws \GuzzleHttp\Exception\GuzzleException
       */

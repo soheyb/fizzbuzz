@@ -9,6 +9,10 @@ use PHPUnit\Framework\TestCase;
 class WordTest extends TestCase
 {
 
+    /**
+     * Test creation of a Word
+     * @return void
+     */
     public function test_creation_word(): void
     {
         $value = "fizz";
@@ -17,6 +21,10 @@ class WordTest extends TestCase
         $this->assertEquals($value, $word->getValue());
     }
 
+    /**
+     * Test creation of an empty Word
+     * @return void
+     */
     public function test_creation_empty_word(): void
     {
         $value = "";

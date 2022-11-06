@@ -9,6 +9,10 @@ use PHPUnit\Framework\TestCase;
 class NumberTest extends TestCase
 {
 
+    /**
+     * Test creation of a Number
+     * @return void
+     */
     public function test_creation_number(): void
     {
         $value = 15;
@@ -17,6 +21,10 @@ class NumberTest extends TestCase
         $this->assertEquals($value, $number->getValue());
     }
 
+    /**
+     * Test creation of a negative Number
+     * @return void
+     */
     public function test_creation_negative_number(): void
     {
         $value = -15;

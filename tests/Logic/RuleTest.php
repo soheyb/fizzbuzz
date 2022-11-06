@@ -12,6 +12,7 @@ class RuleTest extends TestCase
 {
 
     /**
+     * Test the word value method
      * @return void
      */
     public function test_world_value(): void
@@ -25,6 +26,7 @@ class RuleTest extends TestCase
 
 
     /**
+     * Test correct match
      * @return void
      */
     public function test_basic_match(): void
@@ -38,6 +40,7 @@ class RuleTest extends TestCase
     }
 
     /**
+     * Test incorrect match
      * @return void
      */
     public function test_basic_wrong_match(): void

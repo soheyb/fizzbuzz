@@ -8,6 +8,7 @@ use PHPUnit\Framework\TestCase;
 class StatisticsTest extends TestCase
 {
     /**
+     * Test create statistic data
      * @return void
      */
     public function test_statistic_creation(): void

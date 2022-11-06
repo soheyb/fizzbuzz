@@ -16,11 +16,20 @@ use Doctrine\Persistence\ManagerRegistry;
  */
 class StatisticsRepository extends ServiceEntityRepository
 {
+    /**
+     * @param ManagerRegistry $registry
+     */
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Statistics::class);
     }
 
+    /**
+     * Method to add data to the database
+     * @param Statistics $entity
+     * @param bool $flush
+     * @return void
+     */
     public function add(Statistics $entity, bool $flush = true): void
     {
         $this->getEntityManager()->persist($entity);
@@ -31,6 +40,12 @@ class StatisticsRepository extends ServiceEntityRepository
 
     }
 
+    /**
+     * Method to remove data from the database
+     * @param Statistics $entity
+     * @param bool $flush
+     * @return void
+     */
     public function remove(Statistics $entity, bool $flush = false): void
     {
         $this->getEntityManager()->remove($entity);
@@ -39,6 +54,12 @@ class StatisticsRepository extends ServiceEntityRepository
             $this->getEntityManager()->flush();
         }
     }
+
+    /**
+     * Method to get the top used parameters for fizzbuzz route
+     * @return array
+     * @throws \Doctrine\ORM\NonUniqueResultException
+     */
 
     public function top() : array
     {

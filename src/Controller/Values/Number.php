@@ -5,6 +5,9 @@ namespace App\Controller\Values;
 
 use InvalidArgumentException;
 
+/**
+ *
+ */
 class Number
 {
     private  $nb;

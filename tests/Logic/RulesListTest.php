@@ -13,6 +13,7 @@ class RulesListTest extends TestCase
 {
 
     /**
+     * Test creation of RulesList
      * @return void
      */
     public function test_rules_list():void
@@ -35,6 +36,7 @@ class RulesListTest extends TestCase
 
 
     /**
+     * Test push a new Rule to RulesList
      * @return void
      */
     public function test_add_rule():void
