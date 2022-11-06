@@ -16,7 +16,7 @@
 
 
      /**
-      *Test fizzbuzz route
+      * Test fizzbuzz route
       * @return void
       * @throws \GuzzleHttp\Exception\GuzzleException
       */
@@ -46,7 +46,7 @@
     }
 
      /**
-      * Test longer Fizzbuzz within the limit of 255 character
+      * Test longer Fizzbuzz within the limit of 200
       * @return void
       * @throws \GuzzleHttp\Exception\GuzzleException
       */
@@ -74,7 +74,7 @@
      }
 
      /**
-      * Test longer Fizzbuzz within the limit of 245 character
+      * Test longer Fizzbuzz within the limit of 300
       * @return void
       * @throws \GuzzleHttp\Exception\GuzzleException
       */
@@ -103,7 +103,7 @@
      }
 
      /**
-      * Test longer Fizzbuzz within the limit of 245 character
+      * Test negative number
       * @return void
       * @throws \GuzzleHttp\Exception\GuzzleException
       */
