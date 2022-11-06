@@ -39,7 +39,7 @@ Response:
 ```
 
 ```http request
-/statistics
+GET /statistics
 Parameters:
     
 Response:
